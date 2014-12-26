@@ -34,7 +34,7 @@ Thanks for the gift
 
 -- Bob
 """
-    return template_default % kwargs.name
+    return template_default % kwargs['name']
 
 
 ###########################################################
@@ -122,7 +122,7 @@ def main():
     messages = []
     for to, kwargs in recipients:
         messages.append(create_message(EMAIL, to, 'Thanks',
-                                       make_message(kwargs)))
+                                       make_message(**kwargs)))
 
     # Save drafts or send emails
     if flags.drafts:
